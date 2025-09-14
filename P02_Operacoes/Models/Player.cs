@@ -1,26 +1,28 @@
 ﻿using System.Collections;
 
 namespace P02_Operacoes.Models;
-internal class Player
+internal partial class Player
 {
     private Queue<Musica> _filaDeReproducao = [];
+    private Stack<Musica> _historicoDeReproducao = [];
 
-    public void AdicionarNaFila(Musica musica)
-    {
-        _filaDeReproducao.Enqueue(musica);
-    }
-
-    public void AdicionarNaFila(Playlist playlist)
-    {
-        foreach (var m in playlist)
-            AdicionarNaFila(m);
-    }
 
     private Musica? ProximaMusica()
     {
         if (_filaDeReproducao.Count == 0)
             return null;
-        return _filaDeReproducao.Dequeue();
+
+        var musica =  _filaDeReproducao.Dequeue();
+        _historicoDeReproducao.Push(musica);
+
+        return musica;
+    }
+
+    private Musica? MusicaAnterior( )
+    {
+        if (_historicoDeReproducao.Count == 0) return null;
+
+        return _historicoDeReproducao.Pop();
     }
 
     private IEnumerable<Musica> FilaDeReproducao()
@@ -31,26 +33,10 @@ internal class Player
         }
     }
 
-    public void ExibirFilaDeReproducao()
+    private IEnumerable<Musica> HistoricoDeReproducao()
     {
-        Console.WriteLine($"Exibindo a fila de reprodução: \n");
-        foreach (var musica in FilaDeReproducao())
-        {
-            Console.WriteLine($"\t- {musica.Titulo}");
-        }
-        Console.WriteLine();
+        foreach (Musica musica in _historicoDeReproducao)
+            yield return musica;
     }
 
-    public void TocarProximaMusica()
-    {
-        var next = ProximaMusica();
-        if(next is not null)
-        {
-            Console.WriteLine("Avançando para a próxima musica...");
-            Console.WriteLine($" Tocando Agora: {next.Titulo}");
-        }
-        else Console.WriteLine("Fila de Reprodução vazia!");
-
-        Console.WriteLine();
-    }
 }

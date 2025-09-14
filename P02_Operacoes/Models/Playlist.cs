@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 
 namespace P02_Operacoes.Models;
-internal class Playlist : ICollection<Musica>
+internal partial class Playlist : ICollection<Musica>
 {
     private HashSet<Musica> _setMusicas = [];
     private List<Musica> _musicas = [];
@@ -38,68 +38,6 @@ internal class Playlist : ICollection<Musica>
         return (_musicas.Remove(item));
     }
 
-    public Musica? FindMusic(string nome)
-    {
-        foreach (Musica musica in _musicas)
-        {
-            if (musica.Titulo.ToUpper() == nome.ToUpper()) return musica;
-        }
-        return null;
-    }
-
-    public Musica? GetRandomMusic()
-    {
-        if (_musicas.Count == 0) return null;
-
-        Random random = new();
-        var index = random.Next(0, _musicas.Count);
-
-        return _musicas[index];
-    }
-
-    public void DeleteMusic(string nome)
-    {
-        var result = FindMusic(nome);
-        if (result is not null)
-        {
-            _musicas.Remove(result);
-            Console.WriteLine($"Música '{nome}' excluída com sucesso!");
-        }
-        else
-        {
-            Console.WriteLine($"Música '{nome}' não encontrada");
-        }
-        Console.WriteLine();
-    }
-
-    public void ExibirPlaylist()
-    {
-        Console.WriteLine($"Exibindo as Músicas da Playlist - {Nome}");
-        foreach (var musica in _musicas)
-        {
-            Console.WriteLine($"- Título: {musica.Titulo}\t" +
-                $"Artista: {musica.Artista}\t" +
-                $"Duração: {musica.Duracao}s");
-            Console.WriteLine();
-        }
-        Console.WriteLine();
-    }
-
-    public void SortByDuration()
-    {
-        _musicas.Sort();
-    }
-
-    public void SortByArtist()
-    {
-        _musicas.Sort(new ArtistaComparer());
-    }
-
-    public void SortBySong()
-    {
-        _musicas.Sort(new TituloComparer());
-    }
-
 
     public IEnumerator<Musica> GetEnumerator()
     {
@@ -110,11 +48,4 @@ internal class Playlist : ICollection<Musica>
     {
         return GetEnumerator();
     }
-
-    // Antes de Implementar ICollection
-    public void AdicionarMusica(Musica musica)
-    {
-        _musicas.Add(musica);
-    }
-
 }

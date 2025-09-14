@@ -184,8 +184,11 @@ player.ExibirFilaDeReproducao();
 
 player.TocarProximaMusica();
 player.ExibirFilaDeReproducao();
+player.ExibirHistoricoDeReproducao();
 player.TocarProximaMusica();
 player.ExibirFilaDeReproducao();
+player.ExibirHistoricoDeReproducao();
+player.TocarMusicaAnterior();
 
 //--------------------------------------------------------
 #region Etapas...
@@ -203,13 +206,13 @@ static void AntesDeUtilizarICollection(Musica m1, Musica m2, Musica m3, Musica m
 
 static void RemoverMusicaDaPlaylist(Playlist rockeando)
 {
-    rockeando.DeleteMusic("Eduardo e Mônica");
+    rockeando.ExcluirMusica("Eduardo e Mônica");
     rockeando.ExibirPlaylist();
 }
 
 static void SelecionarMusicaAleatoria(Playlist rockeando)
 {
-    var aleatoria = rockeando.GetRandomMusic();
+    var aleatoria = rockeando.SelecionarMusicaAleatoria();
     if (aleatoria is not null)
     {
 
