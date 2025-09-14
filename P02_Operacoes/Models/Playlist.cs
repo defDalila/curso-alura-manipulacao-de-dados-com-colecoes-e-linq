@@ -3,6 +3,7 @@
 namespace P02_Operacoes.Models;
 internal class Playlist : ICollection<Musica>
 {
+    private HashSet<Musica> _setMusicas = [];
     private List<Musica> _musicas = [];
 
     public string Nome { get; set; }
@@ -11,7 +12,10 @@ internal class Playlist : ICollection<Musica>
 
     public void Add(Musica item)
     {
-        _musicas.Add(item);
+        if (_setMusicas.Add(item))
+        {
+            _musicas.Add(item);
+        }
     }
 
     public void Clear()
@@ -73,8 +77,8 @@ internal class Playlist : ICollection<Musica>
         Console.WriteLine($"Exibindo as Músicas da Playlist - {Nome}");
         foreach (var musica in _musicas)
         {
-            Console.WriteLine($"Título: {musica.Titulo}\n" +
-                $"Artista: {musica.Artista}\n" +
+            Console.WriteLine($"- Título: {musica.Titulo}\t" +
+                $"Artista: {musica.Artista}\t" +
                 $"Duração: {musica.Duracao}s");
             Console.WriteLine();
         }

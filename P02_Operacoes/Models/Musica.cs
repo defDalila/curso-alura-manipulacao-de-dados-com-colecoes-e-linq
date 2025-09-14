@@ -13,4 +13,18 @@ public class Musica : IComparable
         if (obj is Musica other) return this.Duracao.CompareTo(other.Duracao);
         return -1;
     }
+
+    public override bool Equals(object? obj)
+    {
+        if (obj is null) return false;
+        if (obj is Musica other) return this.Titulo.Equals(other.Titulo) &&
+                this.Artista.Equals(other.Artista);
+
+        return false;
+    }
+
+    public override int GetHashCode()
+    {
+        return this.Titulo.GetHashCode() ^ this.Artista.GetHashCode();
+    }
 }
