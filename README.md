@@ -69,3 +69,14 @@ E para trabalhar as operações em operações, foi implementado as seguintes fu
 - [x] Player de musica com:
 - Fila de reproducao (para musicas avulsas e/ou playlists)
 - Historico de reproducao
+
+Conteúdo abordado:
+
+- Criar e gerenciar coleções em C# utilizando ICollection<T>, List, HashSet, Queue e Stack.
+- Implementar e sobrescrever métodos para manipular listas, incluindo busca, adição e remoção de elementos.
+- Utilizar interfaces como IComparable e IComparer<T> para definir lógica de ordenação e comparação.
+- Adotar estruturas de HashSet para evitar duplicação, implementando Equals e GetHashCode.
+- Integrar dicionários para rastrear e contar aparições de itens, permitindo análise quantitativa.
+- Implementar uma fila de reprodução utilizando Queue, aplicando conceitos de FIFO.
+- Criar históricos de reprodução com Stack, aplicando conceitos de LIFO.
+- Utilizar técnicas de interpolação de strings para criação de saídas dinâmicas e formatadas.
