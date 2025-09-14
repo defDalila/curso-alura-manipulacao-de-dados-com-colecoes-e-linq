@@ -183,7 +183,8 @@ player.AdicionarNaFila(rockeando);
 player.ExibirFilaDeReproducao();
 
 player.TocarProximaMusica();
-
+player.ExibirFilaDeReproducao();
+player.TocarProximaMusica();
 player.ExibirFilaDeReproducao();
 
 //--------------------------------------------------------

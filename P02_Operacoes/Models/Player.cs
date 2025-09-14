@@ -1,17 +1,26 @@
-﻿namespace P02_Operacoes.Models;
+﻿using System.Collections;
+
+namespace P02_Operacoes.Models;
 internal class Player
 {
-    private List<Musica> _filaDeReproducao = [];
+    private Queue<Musica> _filaDeReproducao = [];
 
     public void AdicionarNaFila(Musica musica)
     {
-        _filaDeReproducao.Add(musica);
+        _filaDeReproducao.Enqueue(musica);
     }
 
     public void AdicionarNaFila(Playlist playlist)
     {
         foreach (var m in playlist)
             AdicionarNaFila(m);
+    }
+
+    private Musica? ProximaMusica()
+    {
+        if (_filaDeReproducao.Count == 0)
+            return null;
+        return _filaDeReproducao.Dequeue();
     }
 
     private IEnumerable<Musica> FilaDeReproducao()
@@ -32,22 +41,13 @@ internal class Player
         Console.WriteLine();
     }
 
-    private Musica? ProximaMusica()
-    {
-        if (_filaDeReproducao.Count == 0)
-            return null;
-
-        var musica = _filaDeReproducao[0];
-        _filaDeReproducao.Remove(musica);
-        return musica;
-    }
-
     public void TocarProximaMusica()
     {
         var next = ProximaMusica();
         if(next is not null)
         {
-            Console.WriteLine($"Tocando a música {next.Titulo}");
+            Console.WriteLine("Avançando para a próxima musica...");
+            Console.WriteLine($" Tocando Agora: {next.Titulo}");
         }
         else Console.WriteLine("Fila de Reprodução vazia!");
 
