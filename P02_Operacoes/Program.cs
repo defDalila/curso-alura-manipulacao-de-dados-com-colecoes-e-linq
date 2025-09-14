@@ -129,23 +129,28 @@ var m20 = new Musica
     Duracao = 230
 };
 
-var rockNacional = new Playlist { Nome = "Rock Nacional" };
 #endregion
 
-
+#region Declara as Playlists...
+var rockNacional = new Playlist { Nome = "Rock Nacional" };
 Playlist rockeando = new() { Nome = "Rockeando" };
+Playlist legiao = new() { Nome = "As mais ouvidas de Legião Urbana" };
+#endregion
+
+#region Add musicas às playlists...
 rockeando.Add(m1);
 rockeando.Add(m2);
 rockeando.Add(m3);
 rockeando.Add(m4);
 rockeando.Add(m5);
 rockeando.Add(m2);
-rockeando.Add(new Musica { Titulo = "Pro Dia Nascer Feliz", Artista = "Barão Vermelho", 
-    Duracao = 345 });
+rockeando.Add(new Musica
+{
+    Titulo = "Pro Dia Nascer Feliz",
+    Artista = "Barão Vermelho",
+    Duracao = 345
+});
 
-rockeando.ExibirPlaylist();
-
-Playlist legiao = new() { Nome = "As mais ouvidas de Legião Urbana" };
 legiao.Add(m5);
 legiao.Add(m6);
 legiao.Add(m7);
@@ -162,11 +167,24 @@ legiao.Add(m17);
 legiao.Add(m18);
 legiao.Add(m19);
 legiao.Add(m20);
+#endregion
 
-legiao.ExibirPlaylist();
 
+Player player = new();
 
-Ranking.MaisTocadas(rockeando, legiao);
+player.AdicionarNaFila(m6);
+player.AdicionarNaFila(m15);
+player.AdicionarNaFila(m9);
+player.AdicionarNaFila(m10);
+player.AdicionarNaFila(m13);
+player.AdicionarNaFila(m17);
+player.AdicionarNaFila(rockeando);
+
+player.ExibirFilaDeReproducao();
+
+player.TocarProximaMusica();
+
+player.ExibirFilaDeReproducao();
 
 //--------------------------------------------------------
 #region Etapas...
@@ -212,5 +230,12 @@ static void Ordenacoes(Playlist rockeando)
 
     rockeando.SortBySong();
     rockeando.ExibirPlaylist();
+}
+
+static void ExibeRanking(Playlist rockeando, Playlist legiao)
+{
+    legiao.ExibirPlaylist();
+    rockeando.ExibirPlaylist();
+    Ranking.MaisTocadas(rockeando, legiao);
 }
 #endregion
