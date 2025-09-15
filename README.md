@@ -50,12 +50,12 @@
 
 ### :computer: [Operações em Coleções](P02_Operacoes)
 
-Foi realizado com base no seguinte cenário: 
+#### 🎨 Cenário: 
 
 > Seja um aplicativo de gerenciamento de músicas onde os usuários podem organizar suas faixas favoritas em playlists personalizadas. Para cada playlist, é essencial que o usuário tenha controle total sobre a sequência de reprodução das músicas, permitindo reordená-las livremente a qualquer momento. Além disso, o aplicativo precisa oferecer a funcionalidade de reprodução aleatória para uma playlist específica, proporcionando uma experiência de audição dinâmica e variada, sem, contudo, alterar a ordem original que o usuário definiu. O desafio é criar uma estrutura robusta que suporte a adição e remoção eficiente de músicas, a reordenação flexível dentro das playlists e a seleção de faixas tanto em modo sequencial quanto aleatório.
 >
 
-E para trabalhar as operações em operações, foi implementado as seguintes funcionalidades:
+#### ⚙️ Funcionalidades:
 
 - [x] Criar as classes para musicas e playlist
 - [x] Listar musicas da playlist
@@ -70,7 +70,7 @@ E para trabalhar as operações em operações, foi implementado as seguintes fu
 - Fila de reproducao (para musicas avulsas e/ou playlists)
 - Historico de reproducao
 
-Conteúdo abordado:
+### :memo: Tópicos Abordados:
 
 - Criar e gerenciar coleções em C# utilizando ICollection<T>, List, HashSet, Queue e Stack.
 - Implementar e sobrescrever métodos para manipular listas, incluindo busca, adição e remoção de elementos.
@@ -80,3 +80,19 @@ Conteúdo abordado:
 - Implementar uma fila de reprodução utilizando Queue, aplicando conceitos de FIFO.
 - Criar históricos de reprodução com Stack, aplicando conceitos de LIFO.
 - Utilizar técnicas de interpolação de strings para criação de saídas dinâmicas e formatadas.
+
+
+### :computer: [Abstraindo uma Fonte de Dados](P03_AbstraindoFonteDeDados)
+
+Com base em um arquivo de músicas no formato csv, foi desenvolvido o que se segue:
+
+- [x] Leitura do arquivo como uma coleção de música;
+- [x] Filtrar da coleção por artista;
+- [ ] Filtrar a coleção por gênero;
+- [x] Filtrar a coleção por duração;
+- [x] Ordenar da coleção por artista;
+- [ ] Ordenar da coleção por artista e em seguida por músicas com duração crescente
+- [ ] Criar uma coleção de artistas e suas músicas
+- [ ] Determinar a duração média das músicas da coleção
+- [ ] Determinar a duração totaç das músicas da coleção
+- [ ] Determinar o artisca com maior quantidade de músicas na coleção.
