@@ -67,8 +67,8 @@
 - [x] Uma playlist nao pode ter musicas repetidas
 - [x] Exibir as 10 musicas mais tocadas em todas as playlists (ranking)
 - [x] Player de musica com:
-- Fila de reproducao (para musicas avulsas e/ou playlists)
-- Historico de reproducao
+- [x] Fila de reproducao (para musicas avulsas e/ou playlists)
+- [x] Historico de reproducao
 
 ### :memo: Tópicos Abordados:
 
@@ -88,11 +88,11 @@ Com base em um arquivo de músicas no formato csv, foi desenvolvido o que se seg
 
 - [x] Leitura do arquivo como uma coleção de música;
 - [x] Filtrar da coleção por artista;
-- [ ] Filtrar a coleção por gênero;
+- [x] Filtrar a coleção por gênero;
 - [x] Filtrar a coleção por duração;
 - [x] Ordenar da coleção por artista;
-- [ ] Ordenar da coleção por artista e em seguida por músicas com duração crescente
-- [ ] Criar uma coleção de artistas e suas músicas
-- [ ] Determinar a duração média das músicas da coleção
-- [ ] Determinar a duração totaç das músicas da coleção
-- [ ] Determinar o artisca com maior quantidade de músicas na coleção.
+- [x] Ordenar da coleção por artista e em seguida por músicas com duração crescente
+- [x] Criar uma coleção de artistas e suas músicas
+- [x] Determinar a duração média das músicas da coleção
+- [x] Determinar a duração totaç das músicas da coleção
+- [x] Determinar o artisca com maior quantidade de músicas na coleção.

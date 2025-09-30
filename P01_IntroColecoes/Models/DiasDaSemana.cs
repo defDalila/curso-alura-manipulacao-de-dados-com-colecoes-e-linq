@@ -5,6 +5,8 @@ internal class DiasDaSemana : IEnumerable<string>
 {
     public IEnumerator<string> GetEnumerator()
     {
+        // yield retorna um elemento por vez conforme ele é solicitado
+        //  e mantém o estado da iteração
         yield return "Domingo";
         yield return "Segunda";
         yield return "Terça";
